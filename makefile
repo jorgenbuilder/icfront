@@ -4,6 +4,7 @@ all:
 	ssh ic0.io "sudo rm -rf /var/www/html/service_worker/* /home/ubuntu/dist"
 	scp -r service-worker/dist ic0.io:
 	ssh ic0.io "sudo cp -r dist/* /var/www/html/service_worker"
+	ssh ic0.io "sudo service nginx reload"
 
 build:
 	(cd service-worker; npm run build)
